@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // funcion para obtener los datos de la API usando Axios
     const fetchEmpleados = async () => {
         try {
-            const respuesta = await axios.get(`http://localhost:3030/empleados`)
+            const respuesta = await axios.get(`https://leom.alwaysdata.net/empleados`)
             console.log(respuesta.data);
             const empleados = respuesta.data
 
@@ -89,7 +89,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // funcnion para borrar un empleado
     const borrarEmpleado = async (id) => {
         try {
-            await axios.delete(`http://localhost:3030/empleados/${id}`)
+            await axios.delete(`https://leom.alwaysdata.net/empleados/${id}`)
             // recargar los empleados
             fetchEmpleados();
         } catch (error) {
@@ -127,7 +127,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // enviar la solicitud POST a la API
         try {
-            await axios.post(`http://localhost:3030/empleados`, nuevoEmpleado)
+            await axios.post(`https://leom.alwaysdata.net/empleados`, nuevoEmpleado)
             // recargar los empleados
             fetchEmpleados()
             // limpiar el formulario
