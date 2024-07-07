@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // función para obtener los datos del empleado
     const fetchEmpleado = async (id) => {
-        const respuesta = await axios.get(`https://leom.alwaysdata.net/empleados/${id}`)
+        const respuesta = await axios.get(`https://empresa-node-api.vercel.app/empleados/${id}`)
         const empleado = respuesta.data
 
         // rellenar el formulario con los datos del empleado
@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // enviar la solicitud PUT a la API
         try {
-            await axios.put(`https://leom.alwaysdata.net/empleados/${idEmpleado}`, empleadoActualizado)
+            await axios.put(`https://empresa-node-api.vercel.app/empleados/${idEmpleado}`, empleadoActualizado)
             // redirigir a la página principal
             window.location.href = 'index.html'
         } catch (error) {
