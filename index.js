@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 const botonEliminar = document.createElement("button")
                 botonEliminar.textContent = "Eliminar"
                 botonEliminar.addEventListener("click", () => {
-                    borrarEmpleado(empleado.id)
+                    borrarEmpleado(empleado.empleadoId)
                 }) // 
 
                 // crear boton para editar
@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 botonEditar.textContent = "Editar"
                 botonEditar.addEventListener("click", () => {
                     //redirigir a la pagina de edicion
-                    window.location.href = `edit.html?id=${empleado.id}`
+                    window.location.href = `edit.html?id=${empleado.empleadoId}`
                 })
                 // agregar los botones a la celda de acciones
                 celdaAcciones.appendChild(botonEliminar)
@@ -87,9 +87,9 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
     // funcnion para borrar un empleado
-    const borrarEmpleado = async (id) => {
+    const borrarEmpleado = async (empleadoId) => {
         try {
-            await axios.delete(`https://empresa-node-api.vercel.app/empleados/${id}`)
+            await axios.delete(`https://empresa-node-api.vercel.app/empleados/${empleadoId}`)
             // recargar los empleados
             fetchEmpleados();
         } catch (error) {
@@ -140,4 +140,3 @@ document.addEventListener("DOMContentLoaded", () => {
     // llamar a la funcion para obtener y mostrar los empleados al cargar la pagina
     fetchEmpleados();
 })
-
