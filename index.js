@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 botonEditar.textContent = "Editar"
                 botonEditar.addEventListener("click", () => {
                     //redirigir a la pagina de edicion
-                    window.location.href = `edit.html?id=${empleado.empleadoId}`
+                    window.location.href = `edit.html?empleadoId=${empleado.empleadoId}`
                 })
                 // agregar los botones a la celda de acciones
                 celdaAcciones.appendChild(botonEliminar)
