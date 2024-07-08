@@ -27,8 +27,8 @@ document.addEventListener("DOMContentLoaded", () => {
     // Convierte la cadena de texto empleado.fecha a un objeto Date usando la función Date.parse().
     // Formatea el objeto Date a una cadena en formato ISO usando el método toISOString() y luego extrae los primeros 10 caracteres, que corresponden a la fecha en formato AAAA-MM-DD, usando el método substring().
     const formatoFecha = (fecha) => {
-        new Date(Date.parse(fecha))
-        return fecha.toISOString().substring(0, 10)
+        const f = new Date(Date.parse(fecha))
+        return f.toISOString().substring(0, 10)
     }
 
     // agregar evento de envío al formulario
