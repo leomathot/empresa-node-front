@@ -6,6 +6,15 @@ document.addEventListener("DOMContentLoaded", () => {
     // obtener el formulario para editar un empleado
     const formEditarEmpleado = document.querySelector("#form-editar-empleado")
 
+    // funcion para formato de fechas
+    // Convierte la cadena de texto empleado.fecha a un objeto Date usando la función Date.parse().
+    // Formatea el objeto Date a una cadena en formato ISO usando el método toISOString() y luego extrae los primeros 10 caracteres, que corresponden a la fecha en formato AAAA-MM-DD, usando el método substring().
+    const formatoFecha = (fecha) => {
+        const date = new Date(Date.parse(fecha))
+        const formatedDate = date.toISOString().substring(0, 10)
+        return formatedDate
+    }
+
     // función para obtener los datos del empleado
     const fetchEmpleado = async (empId) => {
         const respuesta = await axios.get(`https://empresa-node-api.vercel.app/empleados/${empId}`)
@@ -20,12 +29,6 @@ document.addEventListener("DOMContentLoaded", () => {
         document.querySelector("#nuevo-titulo").value = empleado.titulo
         document.querySelector("#nuevo-sueldo").value = (empleado.sueldo)
         // fechas
-        // Convierte la cadena de texto empleado.fecha a un objeto Date usando la función Date.parse().
-        // Formatea el objeto Date a una cadena en formato ISO usando el método toISOString() y luego extrae los primeros 10 caracteres, que corresponden a la fecha en formato AAAA-MM-DD, usando el método substring().
-        const formatoFecha = (fecha) => {
-            const date = new Date(Date.parse(fecha))
-            return date.toISOString().substring(0, 10)
-        }
         document.querySelector("#nuevo-fecha-Nacimiento").value = formatoFecha(empleado.fechaNacimiento)
         document.querySelector("#nuevo-fecha-contratacion").value = formatoFecha(empleado.fechaContratacion)
     }
