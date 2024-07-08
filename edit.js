@@ -11,8 +11,8 @@ document.addEventListener("DOMContentLoaded", () => {
     // Formatea el objeto Date a una cadena en formato ISO usando el método toISOString() y luego extrae los primeros 10 caracteres, que corresponden a la fecha en formato AAAA-MM-DD, usando el método substring().
     const formatoFecha = (fecha) => {
         const date = new Date(Date.parse(fecha))
-        const formatedDate = date.toISOString().substring(0, 10)
-        return formatedDate
+        const formattedDate = date.toISOString().substring(0, 10)
+        return formattedDate
     }
 
     // función para obtener los datos del empleado
@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
         document.querySelector("#nuevo-titulo").value = empleado.titulo
         document.querySelector("#nuevo-sueldo").value = (empleado.sueldo)
         // fechas
-        document.querySelector("#nuevo-fecha-Nacimiento").value = formatoFecha(empleado.fechaNacimiento)
+        document.querySelector("#nuevo-fecha-nacimiento").value = formatoFecha(empleado.fechaNacimiento)
         document.querySelector("#nuevo-fecha-contratacion").value = formatoFecha(empleado.fechaContratacion)
     }
 
