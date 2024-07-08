@@ -85,7 +85,8 @@ document.addEventListener("DOMContentLoaded", () => {
     // funcion para formatear fecha
     function formatearFecha(f) {
 
-        if (f == null) return ''
+        console.log(f)
+        if (f == null || f == "0000-00-00") return ''
 
         // Create a Date object from the ISO string
         const fecha = new Date(f);
