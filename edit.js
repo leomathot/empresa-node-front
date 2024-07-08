@@ -14,17 +14,21 @@ document.addEventListener("DOMContentLoaded", () => {
         // rellenar el formulario con los datos del empleado
         document.querySelector("#nuevo-nombre").value = empleado.nombre
         document.querySelector("#nuevo-apellido").value = empleado.apellido
+        document.querySelector("#nuevo-telefono").value = empleado.telefono
+        document.querySelector("#nuevo-email").value = empleado.email
         document.querySelector("#nuevo-departamento").value = empleado.departamentoId
         document.querySelector("#nuevo-titulo").value = empleado.titulo
         document.querySelector("#nuevo-sueldo").value = (empleado.sueldo)
+        // fechas
+        document.querySelector("#nuevo-fecha-Nacimiento").value = formatoFecha(empleado.fechaNacimiento)
+        document.querySelector("#nuevo-fecha-contratacion").value = formatoFecha(empleado.fechaContratacion)
+    }
 
-        // fecha
-        const fechaContratacion = new Date(Date.parse(empleado.fechaContratacion));
-        const fechaContratacionFormateada = fechaContratacion.toISOString().substring(0, 10);
-        document.querySelector("#nuevo-fecha-contratacion").value = fechaContratacionFormateada;
-        // Convierte la cadena de texto empleado.fechaContratacion a un objeto Date usando la función Date.parse().
-        // Formatea el objeto Date a una cadena en formato ISO usando el método toISOString() y luego extrae los primeros 10 caracteres, que corresponden a la fecha en formato AAAA-MM-DD, usando el método substring().
-        // Asigna la cadena formateada al valor del input con el id "nuevo-fecha-contratacion" usando la propiedad value.
+    // Convierte la cadena de texto empleado.fecha a un objeto Date usando la función Date.parse().
+    // Formatea el objeto Date a una cadena en formato ISO usando el método toISOString() y luego extrae los primeros 10 caracteres, que corresponden a la fecha en formato AAAA-MM-DD, usando el método substring().
+    const formatoFecha = (fecha) => {
+        new Date(Date.parse(fecha))
+        return fecha.toISOString().substring(0, 10)
     }
 
     // agregar evento de envío al formulario
@@ -38,6 +42,9 @@ document.addEventListener("DOMContentLoaded", () => {
         // obtener los valores del formulario
         const nombre = document.querySelector("#nuevo-nombre").value
         const apellido = document.querySelector("#nuevo-apellido").value
+        const fechaNacimiento = document.querySelector("#nuevo-fecha-nacimiento").value
+        const telefono = document.querySelector("#nuevo-telefono").value
+        const email = document.querySelector("#nuevo-email").value
         const departamentoId = document.querySelector("#nuevo-departamento").value
         const titulo = document.querySelector("#nuevo-titulo").value
         const fechaContratacion = document.querySelector("#nuevo-fecha-contratacion").value
@@ -47,6 +54,9 @@ document.addEventListener("DOMContentLoaded", () => {
         const empleadoActualizado = {
             nombre,
             apellido,
+            fechaNacimiento,
+            telefono,
+            email,
             departamentoId,
             titulo,
             fechaContratacion,

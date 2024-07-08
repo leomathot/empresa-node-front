@@ -95,7 +95,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const month = String(fecha.getMonth() + 1).padStart(2, '0'); // Pad month with leading zero if necessary
         const day = String(fecha.getDate()).padStart(2, '0'); // Pad day with leading zero if necessary
 
-        // Format the date in YYYY-MM-DD
+        // Format the date in MM-DD-YYYY
         return `${month}-${day}-${year}`;
     }
 
