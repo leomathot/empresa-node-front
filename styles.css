@@ -32,13 +32,13 @@ form, table {
 th,
 td {
   text-align: left;
-  background-color: #f0f0f0;
+  background-color: #00000010;
   padding: 2px 8px;
 }
 
 form {
   max-width: 500px;
-  background-color: #f0f0f0;
+  background-color: #00000010;
   padding: 10px;
 }
 
